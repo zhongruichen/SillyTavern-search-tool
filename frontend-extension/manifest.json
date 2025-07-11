@@ -1,0 +1,11 @@
+{
+    "display_name": "Web Search (via Google)",
+    "loading_order": 100,
+    "requires": [],
+    "optional": [],
+    "js": "script.js",
+    "css": "style.css",
+    "author": "Gemini & You",
+    "version": "1.1.0",
+    "homePage": ""
+}

@@ -1,0 +1,59 @@
+<div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Enable Automatic Search</h5>
+        <input id="websearch_auto_enabled" type="checkbox" class="auto-save" data-setting="auto_enabled">
+    </div>
+    <p class="mb-1">
+        Allows the AI to decide when to search the web. The AI will output a command that this extension intercepts.
+    </p>
+</div>
+
+<div class="list-group-item">
+    <div class="d-flex w-100 justify-content-between">
+        <h5 class="mb-1">Enable Manual Search (Forced Search)</h5>
+        <input id="websearch_manual_enabled" type="checkbox" class="auto-save" data-setting="manual_enabled">
+    </div>
+    <p class="mb-1">
+        <strong>(Overrides Automatic)</strong> Forces the AI to perform a web search before every response. The AI will first generate a relevant search query based on your prompt.
+    </p>
+</div>
+
+<div class="list-group-item">
+    <h5 class="mb-1">Automatic Search Trigger</h5>
+    <p class="mb-1">
+        A regular expression to find the search command in the AI's response. The first capture group should be the query.
+    </p>
+    <input id="websearch_trigger_regex" type="text" class="form-control auto-save" data-setting="triggerRegex" placeholder="\(search:&quot;(.*?)&quot;\)" title="The Regex must contain at least one capture group (e.g., '(.*?)') to extract the search query.">
+    
+    <div class="mt-2">
+        <h6>Test Trigger</h6>
+        <textarea id="websearch_test_string" class="form-control" rows="2" placeholder="Enter a test string, e.g., The AI said (search:&quot;latest news&quot;)."></textarea>
+        <button id="websearch_test_button" class="btn btn-secondary btn-sm mt-1">Test</button>
+        <div id="websearch_test_result" class="mt-1" style="font-family: monospace; font-size: 0.9em;"></div>
+    </div>
+</div>
+
+<div class="list-group-item">
+    <h5 class="mb-1">Result Count</h5>
+    <p class="mb-1">The maximum number of search results to include.</p>
+    <div class="d-flex align-items-center">
+        <input id="websearch_result_count" type="range" class="form-range auto-save" data-setting="resultCount" min="1" max="10" value="3">
+        <span id="websearch_result_count_value" class="ms-3">3</span>
+    </div>
+</div>
+
+<div class="list-group-item">
+    <h5 class="mb-1">Result Wrapper Template</h5>
+    <p class="mb-1">
+        Template that wraps all search results. Use <code>{{query}}</code> for the search query and <code>{{results}}</code> for the formatted results.
+    </p>
+    <textarea id="websearch_wrapper_template" class="form-control auto-save" data-setting="wrapperTemplate" rows="3" title="This template controls how the collected search results are presented to the AI as a single block of context."></textarea>
+</div>
+
+<div class="list-group-item">
+    <h5 class="mb-1">Result Item Template</h5>
+    <p class="mb-1">
+        Template for each individual search result. Use <code>{{title}}</code>, <code>{{snippet}}</code>, and <code>{{link}}</code>.
+    </p>
+    <textarea id="websearch_item_template" class="form-control auto-save" data-setting="itemTemplate" rows="4" title="This template formats each search result item before it's combined in the wrapper template."></textarea>
+</div>
